@@ -4,6 +4,7 @@
     <el-header style="height: auto"><Header /> </el-header>
     <el-main>
       <router-view />
+      1
     </el-main>
     <el-main> </el-main>
   </el-container>
