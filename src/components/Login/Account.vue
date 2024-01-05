@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import md5 from "crypto-js/md5";
 export default {
   name: "Login",
   data() {
@@ -90,7 +91,22 @@ export default {
           promise
             .then((res) => {
               //弹框展示登录信息
-              this.$message(res.msg);
+              const token = res.data;
+              if (token == null) {
+                //用户权限为普通用户 跳转首页
+                this.$message("当前账号异常，请联系管理员");
+                return;
+              }
+              const user_permissions = md5(token)["user_permissions"];
+              if (user_permissions == 0) {
+                //用户权限为普通用户 跳转首页
+                this.$message(res.msg);
+                this.$router.push({ name: "Homepage" });
+              } else if (user_permissions == 1) {
+                //用户权限为管理员 跳转后台管理业
+                this.$message("管理员登录");
+                this.$router.push({ name: "Admin" });
+              }
             })
             .catch((err) => {
               //弹框展示异常信息

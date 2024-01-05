@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <!-- 头部导航栏 -->
-    <el-header style="height: auto"><Header /> </el-header>
+    <el-header style="height: auto"><Header /></el-header>
     <el-main>
       <router-view />
     </el-main>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Header from "../../components/Header";
+import Header from "@/components/Header/AdminHeader.vue";
 export default {
   name: "home",
   components: { Header },

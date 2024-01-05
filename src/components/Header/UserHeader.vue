@@ -57,7 +57,7 @@
 <script scoped>
 import $ from "jquery";
 export default {
-  name: "Header",
+  name: "UserHeader",
   data() {
     return {
       search: "",

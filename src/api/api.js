@@ -17,7 +17,7 @@ export const reqCodeLogin=(data)=>{
 }
 export const reqLogin = (data) => {
     return requests({
-        url: 'user/login',
+        url: '/user/login',
         method: 'post',
         params: {
             loginMsg: data['loginMsg'],

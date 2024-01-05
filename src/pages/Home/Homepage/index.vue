@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import Header from "../../components/Header";
+import Header from "@/components/Header/UserHeader.vue";
 export default {
   name: "Homepage",
   components: { Header },
