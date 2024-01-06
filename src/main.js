@@ -10,23 +10,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 Vue.use(ElementUI);
 import 'element-ui/lib/theme-chalk/index.css';
-// import 'element-ui/lib/theme-chalk/index.css';
-// import { Button,Link,Menu,Submenu,MenuItem,MenuItemGroup,Header,Aside,Main ,Radio,Checkbox,Input, Icon, Container, Message} from 'element-ui'
-// Vue.use(Link)
-// Vue.use(Icon)
-// Vue.use(Menu);
-// Vue.use(Submenu);
-// Vue.use(MenuItem);
-// Vue.use(MenuItemGroup);
-// Vue.use(Input);
-// Vue.use(Radio);
-// Vue.use(Checkbox);
-// Vue.use(Button);
-// Vue.use(Container);
-// Vue.use(Header);
-// Vue.use(Aside);
-// Vue.use(Main);
-// Vue.use(Message);
+
 
 Vue.config.productionTip = false
 new Vue({

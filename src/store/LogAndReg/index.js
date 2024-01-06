@@ -23,7 +23,7 @@ export default {
                 setItem('Authorization', result.data)
                 //提交登录状态到vue全局共享
                 commit('Login', { isLogin: false, Authorization: result.data })
-                return 'ok'
+                return result
             }
             else {
                 //返回错误信息

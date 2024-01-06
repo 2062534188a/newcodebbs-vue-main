@@ -9,31 +9,53 @@ import TicketPre from '@/pages/Admin/TicketPre-sale'
 import TicketRefund from '@/pages/Admin/TicketRefund'
 import TrainInformation from '@/pages/Admin/TrainInformation'
 import TrainType from '@/pages/Admin/TrainType'
+import UserOrder from '@/pages/Admin/UserOrder'
 export default[
     
     {
         name:'Login',
         path:'/login',
-        component:Login
+        component: Login,
+        meta: {
+                    tittle:'登录'
+                    ,
+                    type:0
+                }
     },
     {
         name:'Register',
         path:'/register',
-        component:Register
+        component: Register,
+        meta: {
+                    tittle:'注册'
+                    ,
+                    type:0
+                }
     },
     {
         name:'Home',
         path:'/home',
         component: Home,
+        redirect:'/home/search',
         children: [
             {
                 name:'Homepage',
                 path:'homepage',
                 component: Homepage,
+                meta: {
+                    tittle:'个人车票'
+                    ,
+                    type:0
+                }
             },{
                 name:'Search',
                 path:'search',
                 component: Search,
+                meta: {
+                    tittle:'车票检索'
+                    ,
+                    type:0
+                }
             }
         ]
     },
@@ -41,32 +63,62 @@ export default[
         name: 'Admin',
         path: '/admin',
         component: Admin,
+        redirect:'/admin/userManagement',
         children: [
       
             {
                 name: 'UserManagement',
                 path: 'userManagement',
-                component:UserManagement
+                component: UserManagement,
+                meta: {
+                    tittle: '用户管理',
+                    type:1
+                }
             },
             {
                 name: 'TicketPre',
                 path: 'ticketPre',
-                component:TicketPre
+                component: TicketPre,
+                meta: {
+                    tittle: '车票退票',
+                    type:1
+                }
             },
             {
                 name: 'TicketRefund',
                 path: 'ticketRefund',
-                component:TicketRefund
+                component: TicketRefund,
+                meta: {
+                    tittle: '车票预售',
+                    type:1
+                }
             },
             {
                 name: 'TrainInformation',
                 path: 'trainInformation',
-                component:TrainInformation
+                component: TrainInformation,
+                meta: {
+                    tittle: '火车站点管理',
+                    type:1
+                }
             },
             {
                 name: 'TrainType',
                 path: 'trainType',
-                component:TrainType
+                component: TrainType,
+                meta: {
+                    tittle: '火车类型管理',
+                    type:1
+                }
+            },
+            {
+                name: 'UserOrder',
+                path: 'userOrder',
+                component: UserOrder,
+                meta: {
+                    tittle: '用户订单管理',
+                    type:1
+                }
             }
         ]
     },

@@ -9,14 +9,14 @@
         class="demo-ruleForm"
         size="mini"
       >
-        <el-form-item label="列车编号" prop="pass">
+        <el-form-item label="用户名称" prop="pass">
           <el-input
             type="password"
             v-model="ruleForm.pass"
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="站点" prop="checkPass">
+        <el-form-item label="手机号" prop="checkPass">
           <el-input
             type="password"
             v-model="ruleForm.checkPass"
@@ -49,15 +49,13 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="train_num" label="列车编号"> </el-table-column>
-        <el-table-column prop="train_Stops" label="站点"> </el-table-column>
-        <el-table-column prop="train_arrival_time" label="预计出发时间">
+        <el-table-column prop="username" label="用户名" width="180">
         </el-table-column>
-        <el-table-column prop="train_issued_time" label="预计到达时间">
+        <el-table-column prop="name" label="姓名" width="180">
         </el-table-column>
-        <el-table-column prop="train_residence_time" label="预计停留时间">
-        </el-table-column>
-        <el-table-column prop="train_late" label="预计晚点"> </el-table-column>
+        <el-table-column prop="phone" label="手机号"> </el-table-column>
+        <el-table-column prop="IP" label="登录IP"> </el-table-column>
+        <el-table-column prop="sex" label="性别"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
@@ -78,7 +76,7 @@
 
 <script>
 export default {
-  name: "TrainInformation",
+  name: "UserOrder",
   data() {
     return {
       ruleForm: {
@@ -88,12 +86,9 @@ export default {
       },
       tableData: [
         {
-          train_num: "2016-05-02",
-          train_Stops: "王小虎",
-          train_arrival_time: "上海市普陀区金沙江路 1518 弄",
-          train_issued_time: "上海市普陀区金沙江路 1518 弄",
-          train_residence_time: "上海市普陀区金沙江路 1518 弄",
-          train_late: "上海市普陀区金沙江路 1518 弄",
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
         },
       ],
     };

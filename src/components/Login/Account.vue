@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import md5 from "crypto-js/md5";
+// 引入base64库
 export default {
   name: "Login",
   data() {
@@ -92,20 +92,27 @@ export default {
             .then((res) => {
               //弹框展示登录信息
               const token = res.data;
+
               if (token == null) {
                 //用户权限为普通用户 跳转首页
                 this.$message("当前账号异常，请联系管理员");
                 return;
               }
-              const user_permissions = md5(token)["user_permissions"];
+              // 获取JWT的payload部分
+              const jwtPayload = token.split(".")[1];
+              //获取用户权限
+              const user_permissions = JSON.parse(atob(jwtPayload))[
+                "user_permissions"
+              ];
+              console.log(user_permissions);
               if (user_permissions == 0) {
                 //用户权限为普通用户 跳转首页
                 this.$message(res.msg);
-                this.$router.push({ name: "Homepage" });
+                this.$router.replace({ name: "Homepage" });
               } else if (user_permissions == 1) {
                 //用户权限为管理员 跳转后台管理业
                 this.$message("管理员登录");
-                this.$router.push({ name: "Admin" });
+                this.$router.replace({ name: "Admin" });
               }
             })
             .catch((err) => {

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header/AdminHeader.vue";
+import Header from "@/components/Header/UserHeader.vue";
 export default {
   name: "home",
   components: { Header },
