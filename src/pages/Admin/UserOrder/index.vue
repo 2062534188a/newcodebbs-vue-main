@@ -9,17 +9,17 @@
         class="demo-ruleForm"
         size="mini"
       >
-        <el-form-item label="用户名称" prop="pass">
+        <el-form-item label="用户ID" prop="user_id">
           <el-input
             type="password"
-            v-model="ruleForm.pass"
+            v-model="ruleForm.user_id"
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="手机号" prop="checkPass">
+        <el-form-item label="订单号" prop="order_sn">
           <el-input
-            type="password"
-            v-model="ruleForm.checkPass"
+            type="order_sn"
+            v-model="ruleForm.user_id"
             autocomplete="off"
           ></el-input>
         </el-form-item>
@@ -31,14 +31,7 @@
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
-      <el-button
-        type="primary"
-        plain
-        icon="el-icon-plus"
-        size="mini"
-        v-hasPermi="['table:table:add']"
-        >新增</el-button
-      >
+
       <el-button
         style=""
         type="primary"
@@ -49,14 +42,24 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="username" label="用户名" width="180">
+        <el-table-column prop="user_id" label="用户ID" width="150">
         </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
+        <el-table-column prop="order_sn" label="订单号" width="150">
         </el-table-column>
-        <el-table-column prop="phone" label="手机号"> </el-table-column>
-        <el-table-column prop="IP" label="登录IP"> </el-table-column>
-        <el-table-column prop="sex" label="性别"> </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column prop="order_price" label="订单金额" width="150">
+        </el-table-column>
+        <el-table-column prop="user_id_name" label="真实姓名" width="150">
+        </el-table-column>
+        <el-table-column prop="user_id_number" label="身份证号" width="150">
+        </el-table-column>
+        <el-table-column prop="user_phone" label="手机号" width="150">
+        </el-table-column>
+        <el-table-column prop="create_time" label="创建时间" width="150">
+        </el-table-column>
+        <el-table-column prop="close_time" label="结束时间" width="150">
+        </el-table-column>
+        <el-table-column prop="order_status" label="订单状态"></el-table-column>
+        <el-table-column label="操作" fixed="right" width="150">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
               >Edit</el-button
@@ -80,13 +83,18 @@ export default {
   data() {
     return {
       ruleForm: {
-        pass: "",
-        checkPass: "",
-        age: "",
+        user_id: "",
+        order_sn: "",
+        order_price: "",
+        user_id_name: "",
+        user_id_number: "",
+        user_phone: "",
+        create_time: "",
+        order_status: "",
       },
       tableData: [
         {
-          date: "2016-05-02",
+          user_id: "2016-05-02",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },

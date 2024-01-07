@@ -23,12 +23,13 @@
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="退款状态" prop="refund_status">
-          <el-input
-            type="password"
-            v-model="ruleForm.refund_status"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="列车状态" prop="refund_status">
+          <el-select v-model="ruleForm.refund_status" placeholder="">
+            <el-option label="待审核" value="0"></el-option>
+            <el-option label="审核已通过" value="1"></el-option>
+            <el-option label="审核未通过" value="2"></el-option>
+            <el-option label="审核已退款" value="3"></el-option>
+          </el-select>
         </el-form-item>
 
         <el-form-item>
@@ -66,7 +67,7 @@
         <el-table-column prop="refund_status" label="退款状态">
         </el-table-column>
         <el-table-column prop="admin_comment" label="备注"> </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作" width="150">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
               >Edit</el-button

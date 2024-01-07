@@ -10,25 +10,17 @@
         size="mini"
       >
         <el-form-item label="列车编号" prop="train_num">
-          <el-input
-            type="password"
-            v-model="ruleForm.train_num"
-            autocomplete="off"
-          ></el-input>
+          <el-input v-model="ruleForm.train_num" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="列车类型" prop="train_type">
-          <el-input
-            type="password"
-            v-model="ruleForm.train_type"
-            autocomplete="off"
-          ></el-input>
+          <el-input v-model="ruleForm.train_type" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="列车状态" prop="state">
-          <el-input
-            type="password"
-            v-model="ruleForm.state"
-            autocomplete="off"
-          ></el-input>
+          <el-select v-model="ruleForm.state" placeholder="">
+            <el-option label="维修中" value="0"></el-option>
+            <el-option label="运行中" value="1"></el-option>
+            <el-option label="状态异常" value="2"></el-option>
+          </el-select>
         </el-form-item>
 
         <el-form-item>

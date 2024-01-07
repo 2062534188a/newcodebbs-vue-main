@@ -9,19 +9,11 @@
         class="demo-ruleForm"
         size="mini"
       >
-        <el-form-item label="用户名称" prop="pass">
-          <el-input
-            type="password"
-            v-model="ruleForm.pass"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="用户名称" prop="username">
+          <el-input v-model="ruleForm.username" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="手机号" prop="checkPass">
-          <el-input
-            type="password"
-            v-model="ruleForm.checkPass"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="手机号" prop="phone">
+          <el-input v-model="ruleForm.phone" autocomplete="off"></el-input>
         </el-form-item>
 
         <el-form-item>
@@ -83,11 +75,11 @@ export default {
   data() {
     return {
       ruleForm: {
-        pass: "",
-        checkPass: "",
-        age: "",
+        username: "",
+        phone: "",
       },
       va: true,
+
       tableData: [
         {
           username: "2016-05-02",

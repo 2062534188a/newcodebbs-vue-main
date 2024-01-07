@@ -44,9 +44,11 @@
             <li class="slide2"></li>
             <li><a href="http://localhost/#/home/search">首页</a></li>
             <li><a href="http://localhost/#/home/homepage">本人车票</a></li>
-            <li><a href="#">列车状态</a></li>
-            <li><a href="#">我的订单</a></li>
-            <li><a href="#">个人中心</a></li>
+            <li><a href="http://localhost/#/home/memberCenter">会员中心</a></li>
+            <li><a href="http://localhost/#/home/orderCenter">我的订单</a></li>
+            <li>
+              <a href="http://localhost/#/home/personalInformation">个人中心</a>
+            </li>
           </ul>
         </div></el-col
       >

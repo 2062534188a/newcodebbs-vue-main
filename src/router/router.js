@@ -10,6 +10,9 @@ import TicketRefund from '@/pages/Admin/TicketRefund'
 import TrainInformation from '@/pages/Admin/TrainInformation'
 import TrainType from '@/pages/Admin/TrainType'
 import UserOrder from '@/pages/Admin/UserOrder'
+import PersonalInformation from '@/pages/Home/PersonalInformation'
+import MemberCenter from '@/pages/Home/MemberCenter'
+import OrderCenter from '@/pages/Home/OrderCenter'
 export default[
     
     {
@@ -53,6 +56,35 @@ export default[
                 component: Search,
                 meta: {
                     tittle:'车票检索'
+                    ,
+                    type:0
+                }
+            },{
+                name:'PersonalInformation',
+                path:'personalInformation',
+                component: PersonalInformation,
+                meta: {
+                    tittle:'个人中心'
+                    ,
+                    type:0
+                }
+            },
+            {
+                name:'MemberCenter',
+                path:'memberCenter',
+                component: MemberCenter,
+                meta: {
+                    tittle:'会员中心'
+                    ,
+                    type:0
+                }
+            },
+            {
+                name:'OrderCenter',
+                path:'orderCenter',
+                component: OrderCenter,
+                meta: {
+                    tittle:'我的订单'
                     ,
                     type:0
                 }

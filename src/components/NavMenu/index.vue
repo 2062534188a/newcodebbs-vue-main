@@ -21,11 +21,6 @@
               @click="$router.push({ name: 'UserManagement' })"
               >用户信息</el-menu-item
             >
-            <el-menu-item
-              index="1-2"
-              @click="$router.push({ name: 'UserOrder' })"
-              >用户订单管理</el-menu-item
-            >
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
@@ -54,11 +49,16 @@
           <el-menu-item-group>
             <el-menu-item
               index="3-1"
+              @click="$router.push({ name: 'UserOrder' })"
+              >用户订单管理</el-menu-item
+            >
+            <el-menu-item
+              index="3-2"
               @click="$router.push({ name: 'TicketRefund' })"
               >用户车票管理</el-menu-item
             >
             <el-menu-item
-              index="1-2"
+              index="3-3"
               @click="$router.push({ name: 'TicketPre' })"
               >车票退票管理</el-menu-item
             >

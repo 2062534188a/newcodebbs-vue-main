@@ -9,17 +9,12 @@
         class="demo-ruleForm"
         size="mini"
       >
-        <el-form-item label="列车编号" prop="pass">
-          <el-input
-            type="password"
-            v-model="ruleForm.pass"
-            autocomplete="off"
-          ></el-input>
+        <el-form-item label="列车编号" prop="train_num">
+          <el-input v-model="ruleForm.train_num" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="站点" prop="checkPass">
+        <el-form-item label="站点" prop="train_Stops">
           <el-input
-            type="password"
-            v-model="ruleForm.checkPass"
+            v-model="ruleForm.train_Stops"
             autocomplete="off"
           ></el-input>
         </el-form-item>
@@ -82,9 +77,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        pass: "",
-        checkPass: "",
-        age: "",
+        train_num: "",
+        train_Stops: "",
       },
       tableData: [
         {

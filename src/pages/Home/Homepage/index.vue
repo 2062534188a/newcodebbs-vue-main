@@ -22,15 +22,68 @@
                 吧
               </div>
               <el-table
-                v-show="!tableData.length == 0"
                 :data="tableData"
-                height="350"
+                style="width: 100%"
+                v-show="!tableData.length == 0"
               >
-                <el-table-column prop="date" label="日期" width="180">
+                <el-table-column type="expand">
+                  <template slot-scope="props">
+                    <el-form
+                      label-position="left"
+                      inline
+                      class="demo-table-expand"
+                    >
+                      <el-form-item label="车票编号">
+                        <span>{{ props.row.ticket_number }}</span>
+                      </el-form-item>
+                      <el-form-item label="列车编号">
+                        <span>{{ props.row.train_num }}</span>
+                      </el-form-item>
+                      <el-form-item label="座席">
+                        <span>{{ props.row.seating }}</span>
+                      </el-form-item>
+                      <el-form-item label="座位号">
+                        <span>{{ props.row.seat_number }}</span>
+                      </el-form-item>
+                      <el-form-item label="车票状态">
+                        <span>{{ props.row.order_status }}</span>
+                      </el-form-item>
+                      <el-form-item label="发车站点">
+                        <span>{{ props.row.departure_point }}</span>
+                      </el-form-item>
+                      <el-form-item label="目标站点">
+                        <span>{{ props.row.target_point }}</span>
+                      </el-form-item>
+                      <el-form-item label="发车时间">
+                        <span>{{ props.row.departure_time }}</span>
+                      </el-form-item>
+                      <el-form-item label="预订日期">
+                        <span>{{ props.row.booking_date }}</span>
+                      </el-form-item>
+                      <el-form-item>
+                        <el-button
+                          size="small"
+                          @click="handleEdit(scope.$index, scope.row)"
+                          >Edit</el-button
+                        >
+                        <el-button
+                          type="small"
+                          @click="handleDelete(scope.$index, scope.row)"
+                          >退票</el-button
+                        >
+                      </el-form-item>
+                    </el-form>
+                  </template>
                 </el-table-column>
-                <el-table-column prop="name" label="姓名" width="180">
+                <el-table-column label="车票编号" prop="ticket_number">
                 </el-table-column>
-                <el-table-column prop="address" label="地址"> </el-table-column>
+                <el-table-column label="列车编号" prop="train_num">
+                </el-table-column>
+                <el-table-column label="座席" prop="seating"> </el-table-column>
+                <el-table-column label="座位号" prop="seat_number">
+                </el-table-column>
+                <el-table-column label="车票状态" prop="order_status">
+                </el-table-column>
               </el-table>
             </el-card>
           </el-tab-pane>
@@ -79,12 +132,71 @@
                 </el-button>
               </el-form-item>
             </el-form>
-            <el-table :data="tableData" style="width: 100%" v-loading="loding">
-              <el-table-column prop="date" label="日期" width="180">
+
+            <el-table
+              :data="tableData"
+              style="width: 100%"
+              v-show="!tableData.length == 0"
+              v-loading="loding"
+            >
+              <el-table-column type="expand">
+                <template slot-scope="props">
+                  <el-form
+                    label-position="left"
+                    inline
+                    class="demo-table-expand"
+                  >
+                    <el-form-item label="车票编号">
+                      <span>{{ props.row.ticket_number }}</span>
+                    </el-form-item>
+                    <el-form-item label="列车编号">
+                      <span>{{ props.row.train_num }}</span>
+                    </el-form-item>
+                    <el-form-item label="座席">
+                      <span>{{ props.row.seating }}</span>
+                    </el-form-item>
+                    <el-form-item label="座位号">
+                      <span>{{ props.row.seat_number }}</span>
+                    </el-form-item>
+                    <el-form-item label="车票状态">
+                      <span>{{ props.row.order_status }}</span>
+                    </el-form-item>
+                    <el-form-item label="发车站点">
+                      <span>{{ props.row.departure_point }}</span>
+                    </el-form-item>
+                    <el-form-item label="目标站点">
+                      <span>{{ props.row.target_point }}</span>
+                    </el-form-item>
+                    <el-form-item label="发车时间">
+                      <span>{{ props.row.departure_time }}</span>
+                    </el-form-item>
+                    <el-form-item label="预订日期">
+                      <span>{{ props.row.booking_date }}</span>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button
+                        size="small"
+                        @click="handleEdit(scope.$index, scope.row)"
+                        >Edit</el-button
+                      >
+                      <el-button
+                        type="small"
+                        @click="handleDelete(scope.$index, scope.row)"
+                        >退票</el-button
+                      >
+                    </el-form-item>
+                  </el-form>
+                </template>
               </el-table-column>
-              <el-table-column prop="name" label="姓名" width="180">
+              <el-table-column label="车票编号" prop="ticket_number">
               </el-table-column>
-              <el-table-column prop="address" label="地址"> </el-table-column>
+              <el-table-column label="列车编号" prop="train_num">
+              </el-table-column>
+              <el-table-column label="座席" prop="seating"> </el-table-column>
+              <el-table-column label="座位号" prop="seat_number">
+              </el-table-column>
+              <el-table-column label="车票状态" prop="order_status">
+              </el-table-column>
             </el-table>
           </el-tab-pane>
           <el-tab-pane label="历史车票">
@@ -126,12 +238,59 @@
                 </el-button>
               </el-form-item>
             </el-form>
-            <el-table :data="tableData" style="width: 100%" v-loading="loding">
-              <el-table-column prop="date" label="日期" width="180">
+            <el-table
+              :data="tableData"
+              style="width: 100%"
+              v-show="!tableData.length == 0"
+              v-loading="loding"
+            >
+              <el-table-column type="expand">
+                <template slot-scope="props">
+                  <el-form
+                    label-position="left"
+                    inline
+                    class="demo-table-expand"
+                    v-loading="loding"
+                  >
+                    <el-form-item label="车票编号">
+                      <span>{{ props.row.ticket_number }}</span>
+                    </el-form-item>
+                    <el-form-item label="列车编号">
+                      <span>{{ props.row.train_num }}</span>
+                    </el-form-item>
+                    <el-form-item label="座席">
+                      <span>{{ props.row.seating }}</span>
+                    </el-form-item>
+                    <el-form-item label="座位号">
+                      <span>{{ props.row.seat_number }}</span>
+                    </el-form-item>
+                    <el-form-item label="车票状态">
+                      <span>{{ props.row.order_status }}</span>
+                    </el-form-item>
+                    <el-form-item label="发车站点">
+                      <span>{{ props.row.departure_point }}</span>
+                    </el-form-item>
+                    <el-form-item label="目标站点">
+                      <span>{{ props.row.target_point }}</span>
+                    </el-form-item>
+                    <el-form-item label="发车时间">
+                      <span>{{ props.row.departure_time }}</span>
+                    </el-form-item>
+                    <el-form-item label="预订日期">
+                      <span>{{ props.row.booking_date }}</span>
+                    </el-form-item>
+                  </el-form>
+                </template>
               </el-table-column>
-              <el-table-column prop="name" label="姓名" width="180">
+              <el-table-column label="车票编号" prop="ticket_number">
               </el-table-column>
-              <el-table-column prop="address" label="地址"> </el-table-column>
+              <el-table-column label="列车编号" prop="train_num">
+              </el-table-column>
+              <el-table-column label="座席" prop="seating"> </el-table-column>
+              <el-table-column label="座位号" prop="seat_number">
+              </el-table-column>
+              <el-table-column label="车票状态" prop="order_status">
+              </el-table-column>
             </el-table>
           </el-tab-pane>
         </el-tabs>
@@ -148,36 +307,18 @@ export default {
   data() {
     return {
       tableData: [
-        // {
-        //   date: "2016-05-02",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1518 弄",
-        // },
-        // {
-        //   date: "2016-05-04",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1517 弄",
-        // },
-        // {
-        //   date: "2016-05-01",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1519 弄",
-        // },
-        // {
-        //   date: "2016-05-03",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1516 弄",
-        // },
-        // {
-        //   date: "2016-05-03",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1516 弄",
-        // },
-        // {
-        //   date: "2016-05-03",
-        //   name: "王小虎",
-        //   address: "上海市普陀区金沙江路 1516 弄",
-        // },
+        {
+          user_id: "2016-05-02",
+          ticket_number: "王小虎",
+          train_num: "上海市普陀区金沙江路 1518 弄",
+          seating: "上海市普陀区金沙江路 1518 弄",
+          seat_number: "上海市普陀区金沙江路 1518 弄",
+          order_status: "上海市普陀区金沙江路 1518 弄",
+          departure_point: "上海市普陀区金沙江路 1518 弄",
+          target_point: "上海市普陀区金沙江路 1518 弄",
+          departure_time: "上海市普陀区金沙江路 1518 弄",
+          booking_date: "上海市普陀区金沙江路 1518 弄",
+        },
       ],
       form: {
         name: "",
@@ -194,9 +335,28 @@ export default {
   },
   methods: {
     search() {},
+    handleEdit(index, row) {
+      console.log(index, row);
+    },
+    handleDelete(index, row) {
+      console.log(index, row);
+    },
   },
   mounted() {},
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.demo-table-expand {
+  font-size: 0;
+}
+.demo-table-expand label {
+  width: 90px;
+  color: #99a9bf;
+}
+.demo-table-expand .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 50%;
+}
+</style>
