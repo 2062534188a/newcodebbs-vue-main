@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import { queryTrainType } from "@/api/api";
 export default {
   name: "UserManagement",
   data() {
@@ -119,9 +120,16 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+    queryTrainType() {
+      queryTrainType().then((res) => {
+        const trainType = res.data;
+        console.log(trainType);
+      });
+    },
   },
   mounted() {
     this.$bus.$emit("message", this.$route.meta.tittle);
+    this.queryTrainType();
   },
 };
 </script>

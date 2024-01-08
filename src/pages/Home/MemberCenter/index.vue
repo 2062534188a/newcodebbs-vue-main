@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { queryMyVipInformation } from "@/api/api";
 export default {
   name: "MemberCenter",
   data() {
@@ -52,6 +53,15 @@ export default {
     getMembershipPoints(percentage) {
       return "2";
     },
+    queryMyVipInformation() {
+      queryMyVipInformation().then((res) => {
+        const vipInformation = res.data;
+        console.log(vipInformation);
+      });
+    },
+  },
+  mounted() {
+    this.queryMyVipInformation();
   },
 };
 </script>

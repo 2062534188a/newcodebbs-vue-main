@@ -112,7 +112,7 @@ export default[
                 path: 'ticketPre',
                 component: TicketPre,
                 meta: {
-                    tittle: '车票退票',
+                    tittle: '车票预售',
                     type:1
                 }
             },
@@ -121,7 +121,7 @@ export default[
                 path: 'ticketRefund',
                 component: TicketRefund,
                 meta: {
-                    tittle: '车票预售',
+                    tittle: '车票退票',
                     type:1
                 }
             },

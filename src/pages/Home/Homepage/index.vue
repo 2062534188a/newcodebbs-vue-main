@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-main>
-        <el-tabs :tab-position="top" style="height: 640px; margin: 5px 20px">
+        <el-tabs tab-position="top" style="height: 640px; margin: 5px 20px">
           <el-tab-pane label="待出行车票" v-loading="loding">
             <el-card class="box-card">
               <div
@@ -93,7 +93,7 @@
               :model="form"
               label-width="80px"
               size="mini"
-              inline="true"
+              inline
             >
               <el-form-item>
                 <el-select v-model="form.region" placeholder="请选择查询方式">
@@ -205,7 +205,7 @@
               :model="form"
               label-width="80px"
               size="mini"
-              inline="true"
+              inline
             >
               <el-form-item label="乘车日期">
                 <el-col :span="11">
@@ -301,6 +301,7 @@
 
 <script>
 import Header from "@/components/Header/UserHeader.vue";
+import { queryMyTicket } from "@/api/api";
 export default {
   name: "Homepage",
   components: { Header },
@@ -341,8 +342,18 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+    queryMyTicket() {
+      queryMyTicket()
+        .then((res) => {
+          const ticket = res.data;
+          console.log(ticket);
+        })
+        .catch(() => {});
+    },
   },
-  mounted() {},
+  mounted() {
+    this.queryMyTicket();
+  },
 };
 </script>
 

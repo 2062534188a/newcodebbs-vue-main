@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { queryOrder } from "@/api/api";
 export default {
   name: "UserOrder",
   data() {
@@ -113,9 +114,16 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+    queryOrder() {
+      queryOrder().then((res) => {
+        const order = res.data;
+        console.log(order);
+      });
+    },
   },
   mounted() {
     this.$bus.$emit("message", this.$route.meta.tittle);
+    this.queryOrder();
   },
 };
 </script>

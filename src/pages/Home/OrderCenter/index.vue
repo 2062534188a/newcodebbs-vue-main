@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import { queryMyOrder } from "@/api/api";
 export default {
   name: "OrderCenter",
   data() {
@@ -110,6 +111,17 @@ export default {
       console.log(formName);
       this.$refs[formName].resetFields();
     },
+    queryMyOrderData() {
+      queryMyOrder()
+        .then((res) => {
+          const orderData = res.data;
+          console.log(orderData);
+        })
+        .catch((err) => {});
+    },
+  },
+  mounted() {
+    this.queryMyOrderData();
   },
 };
 </script>

@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { queryUserData } from "@/api/api";
 export default {
   name: "UserManagement",
   data() {
@@ -104,9 +105,16 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+    queryUserData() {
+      queryUserData().then((res) => {
+        const userData = res.data;
+        console.log(userData);
+      });
+    },
   },
   mounted() {
     this.$bus.$emit("message", this.$route.meta.tittle);
+    this.queryUserData();
   },
 };
 </script>

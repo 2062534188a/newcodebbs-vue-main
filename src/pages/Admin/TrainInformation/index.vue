@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import { queryTrainInformation } from "@/api/api";
 export default {
   name: "TrainInformation",
   data() {
@@ -104,9 +105,16 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+    queryTrainInformation() {
+      queryTrainInformation().then((res) => {
+        const trainInformation = res.data;
+        console.log(trainInformation);
+      });
+    },
   },
   mounted() {
     this.$bus.$emit("message", this.$route.meta.tittle);
+    this.queryTrainInformation();
   },
 };
 </script>

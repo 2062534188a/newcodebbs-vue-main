@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { queryMyUserData } from "@/api/api";
 export default {
   name: "PersonalInformation",
   data() {
@@ -70,10 +71,20 @@ export default {
       },
     };
   },
+  methods: {
+    queryMyUserData() {
+      queryMyUserData()
+        .then((res) => {
+          const userData = res.data;
+          console.log(userData);
+        })
+        .catch((err) => {});
+    },
+  },
+  mounted() {
+    this.queryMyUserData();
+  },
 };
 </script>
 
-<style>
-a {
-}
-</style>
+<style></style>

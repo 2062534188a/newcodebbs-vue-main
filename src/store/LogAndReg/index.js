@@ -1,18 +1,8 @@
-import { reqCode, reqLogin } from '@/api/api'
 import { setItem } from '@/utils/storage'
 export default {
     namespaced:true,
     actions: {
-        // 获取验证码
-       async getCode({commit},email) {
-            const result = await reqCode({ 'mail':email })
-            
-            if (result.code == 200) {
-                //获取验证码成功
-                //清除本地存储的一次性验证码标识
-                window.sessionStorage.removeItem('reqMsg')
-            } 
-        },
+       
         async Login({ commit }, data) {
             
             //异步发送登录请求
@@ -41,7 +31,7 @@ export default {
         }
     },
     state: {
-        //是否需要设置密码
+        //查询登录状态
         isLogin: false,
         //登录凭证
         Authorization:''
