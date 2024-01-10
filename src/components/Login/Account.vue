@@ -108,7 +108,7 @@ export default {
               if (user_permissions == 0) {
                 //用户权限为普通用户 跳转首页
                 this.$message(res.msg);
-                this.$router.replace({ name: "Homepage" });
+                this.$router.replace({ name: "Home" });
               } else if (user_permissions == 1) {
                 //用户权限为管理员 跳转后台管理业
                 this.$message("管理员登录");

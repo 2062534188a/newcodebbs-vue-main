@@ -300,20 +300,7 @@ export default {
       table1: [],
       table2: [],
 
-      tableData: [
-        {
-          user_id: "2016-05-02",
-          ticket_number: "王小虎",
-          train_num: "上海市普陀区金沙江路 1518 弄",
-          seating: "上海市普陀区金沙江路 1518 弄",
-          seat_number: "上海市普陀区金沙江路 1518 弄",
-          order_status: "上海市普陀区金沙江路 1518 弄",
-          departure_point: "上海市普陀区金沙江路 1518 弄",
-          target_point: "上海市普陀区金沙江路 1518 弄",
-          departure_time: "上海市普陀区金沙江路 1518 弄",
-          booking_date: "上海市普陀区金沙江路 1518 弄",
-        },
-      ],
+      tableData: [],
       form: {
         name: "",
         region: "",
