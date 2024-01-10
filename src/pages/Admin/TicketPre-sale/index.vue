@@ -44,26 +44,26 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="user_id" label="用户ID" width="150">
+        <el-table-column prop="userId" label="用户ID" width="150">
         </el-table-column>
-        <el-table-column prop="ticket_number" label="车票编号" width="150">
+        <el-table-column prop="ticketNumber" label="车票编号" width="150">
         </el-table-column>
-        <el-table-column prop="train_num" label="列车编号" width="150">
+        <el-table-column prop="trainNum" label="列车编号" width="150">
         </el-table-column>
         <el-table-column prop="seating" label="座席" width="150">
         </el-table-column>
 
-        <el-table-column prop="seat_number" label="座位号" width="150">
+        <el-table-column prop="seatNumber" label="座位号" width="150">
         </el-table-column>
-        <el-table-column prop="order_status" label="车票状态" width="150">
+        <el-table-column prop="orderStatus" label="车票状态" width="150">
         </el-table-column>
-        <el-table-column prop="departure_point" label="发车站点" width="150">
+        <el-table-column prop="departurePoint" label="发车站点" width="150">
         </el-table-column>
-        <el-table-column prop="target_point" label="目标站点" width="150">
+        <el-table-column prop="targetPoint" label="目标站点" width="150">
         </el-table-column>
-        <el-table-column prop="departure_time" label="发车时间" width="150">
+        <el-table-column prop="departureTime" label="发车时间" width="150">
         </el-table-column>
-        <el-table-column prop="booking_date" label="预订日期" width="150">
+        <el-table-column prop="bookingDate" label="预订日期" width="150">
         </el-table-column>
 
         <el-table-column label="操作" width="150" fixed="right">
@@ -120,6 +120,7 @@ export default {
     queryTicket() {
       queryTicket().then((res) => {
         const ticket = res.data;
+        this.tableData = ticket;
         console.log(ticket);
       });
     },

@@ -55,12 +55,12 @@
             <el-menu-item
               index="3-2"
               @click="$router.push({ name: 'TicketRefund' })"
-              >用户车票管理</el-menu-item
+              >用户退票管理</el-menu-item
             >
             <el-menu-item
               index="3-3"
               @click="$router.push({ name: 'TicketPre' })"
-              >车票退票管理</el-menu-item
+              >车票车票管理</el-menu-item
             >
           </el-menu-item-group>
         </el-submenu>

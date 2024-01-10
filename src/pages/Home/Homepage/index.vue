@@ -22,7 +22,7 @@
                 吧
               </div>
               <el-table
-                :data="tableData"
+                :data="table1"
                 style="width: 100%"
                 v-show="!tableData.length == 0"
               >
@@ -34,55 +34,50 @@
                       class="demo-table-expand"
                     >
                       <el-form-item label="车票编号">
-                        <span>{{ props.row.ticket_number }}</span>
+                        <span>{{ props.row.ticketNumber }}</span>
                       </el-form-item>
                       <el-form-item label="列车编号">
-                        <span>{{ props.row.train_num }}</span>
+                        <span>{{ props.row.trainNum }}</span>
                       </el-form-item>
                       <el-form-item label="座席">
-                        <span>{{ props.row.seating }}</span>
+                        <span>{{ props.row.seating | getSeating }}</span>
                       </el-form-item>
                       <el-form-item label="座位号">
-                        <span>{{ props.row.seat_number }}</span>
+                        <span>{{ props.row.seatNumber }}</span>
                       </el-form-item>
                       <el-form-item label="车票状态">
-                        <span>{{ props.row.order_status }}</span>
+                        <span>{{ props.row.orderStatus }}</span>
                       </el-form-item>
                       <el-form-item label="发车站点">
-                        <span>{{ props.row.departure_point }}</span>
+                        <span>{{ props.row.departurePoint }}</span>
                       </el-form-item>
                       <el-form-item label="目标站点">
-                        <span>{{ props.row.target_point }}</span>
+                        <span>{{ props.row.targetPoint }}</span>
                       </el-form-item>
                       <el-form-item label="发车时间">
-                        <span>{{ props.row.departure_time }}</span>
+                        <span>{{ props.row.departureTime }}</span>
                       </el-form-item>
                       <el-form-item label="预订日期">
-                        <span>{{ props.row.booking_date }}</span>
+                        <span>{{ props.row.bookingDate }}</span>
                       </el-form-item>
                       <el-form-item>
                         <el-button
-                          size="small"
-                          @click="handleEdit(scope.$index, scope.row)"
-                          >Edit</el-button
-                        >
-                        <el-button
                           type="small"
-                          @click="handleDelete(scope.$index, scope.row)"
+                          @click="submitTicketRefund(props.$index, props.row)"
                           >退票</el-button
                         >
                       </el-form-item>
                     </el-form>
                   </template>
                 </el-table-column>
-                <el-table-column label="车票编号" prop="ticket_number">
+                <el-table-column label="车票编号" prop="ticketNumber">
                 </el-table-column>
-                <el-table-column label="列车编号" prop="train_num">
+                <el-table-column label="列车编号" prop="trainNum">
                 </el-table-column>
                 <el-table-column label="座席" prop="seating"> </el-table-column>
-                <el-table-column label="座位号" prop="seat_number">
+                <el-table-column label="座位号" prop="seatNumber">
                 </el-table-column>
-                <el-table-column label="车票状态" prop="order_status">
+                <el-table-column label="车票状态" prop="orderStatus">
                 </el-table-column>
               </el-table>
             </el-card>
@@ -147,55 +142,50 @@
                     class="demo-table-expand"
                   >
                     <el-form-item label="车票编号">
-                      <span>{{ props.row.ticket_number }}</span>
+                      <span>{{ props.row.ticketNumber }}</span>
                     </el-form-item>
                     <el-form-item label="列车编号">
-                      <span>{{ props.row.train_num }}</span>
+                      <span>{{ props.row.trainNum }}</span>
                     </el-form-item>
                     <el-form-item label="座席">
-                      <span>{{ props.row.seating }}</span>
+                      <span>{{ props.row.seating | getSeating }}</span>
                     </el-form-item>
                     <el-form-item label="座位号">
-                      <span>{{ props.row.seat_number }}</span>
+                      <span>{{ props.row.seatNumber }}</span>
                     </el-form-item>
                     <el-form-item label="车票状态">
-                      <span>{{ props.row.order_status }}</span>
+                      <span>{{ props.row.orderStatus | getStatus }}</span>
                     </el-form-item>
                     <el-form-item label="发车站点">
-                      <span>{{ props.row.departure_point }}</span>
+                      <span>{{ props.row.departurePoint }}</span>
                     </el-form-item>
                     <el-form-item label="目标站点">
-                      <span>{{ props.row.target_point }}</span>
+                      <span>{{ props.row.targetPoint }}</span>
                     </el-form-item>
                     <el-form-item label="发车时间">
-                      <span>{{ props.row.departure_time }}</span>
+                      <span>{{ props.row.departureTime }}</span>
                     </el-form-item>
                     <el-form-item label="预订日期">
-                      <span>{{ props.row.booking_date }}</span>
+                      <span>{{ props.row.bookingDate }}</span>
                     </el-form-item>
                     <el-form-item>
                       <el-button
-                        size="small"
-                        @click="handleEdit(scope.$index, scope.row)"
-                        >Edit</el-button
-                      >
-                      <el-button
                         type="small"
-                        @click="handleDelete(scope.$index, scope.row)"
+                        @click="submitTicketRefund(props.$index, props.row)"
                         >退票</el-button
                       >
                     </el-form-item>
                   </el-form>
                 </template>
               </el-table-column>
-              <el-table-column label="车票编号" prop="ticket_number">
+              <el-table-column label="车票编号" prop="ticketNumber">
               </el-table-column>
-              <el-table-column label="列车编号" prop="train_num">
+              <el-table-column label="列车编号" prop="trainNum">
               </el-table-column>
               <el-table-column label="座席" prop="seating"> </el-table-column>
-              <el-table-column label="座位号" prop="seat_number">
+              <el-table-column label="座位号" prop="seatNumber">
               </el-table-column>
-              <el-table-column label="车票状态" prop="order_status">
+              <el-table-column label="车票状态" prop="orderStatus">
               </el-table-column>
             </el-table>
           </el-tab-pane>
@@ -253,43 +243,43 @@
                     v-loading="loding"
                   >
                     <el-form-item label="车票编号">
-                      <span>{{ props.row.ticket_number }}</span>
+                      <span>{{ props.row.ticketNumber }}</span>
                     </el-form-item>
                     <el-form-item label="列车编号">
-                      <span>{{ props.row.train_num }}</span>
+                      <span>{{ props.row.trainNum }}</span>
                     </el-form-item>
                     <el-form-item label="座席">
-                      <span>{{ props.row.seating }}</span>
+                      <span>{{ props.row.seating | getSeating }}</span>
                     </el-form-item>
                     <el-form-item label="座位号">
-                      <span>{{ props.row.seat_number }}</span>
+                      <span>{{ props.row.seatNumber }}</span>
                     </el-form-item>
                     <el-form-item label="车票状态">
-                      <span>{{ props.row.order_status }}</span>
+                      <span>{{ props.row.orderStatus | getStatus }}</span>
                     </el-form-item>
                     <el-form-item label="发车站点">
-                      <span>{{ props.row.departure_point }}</span>
+                      <span>{{ props.row.departurePoint }}</span>
                     </el-form-item>
                     <el-form-item label="目标站点">
-                      <span>{{ props.row.target_point }}</span>
+                      <span>{{ props.row.targetPoint }}</span>
                     </el-form-item>
                     <el-form-item label="发车时间">
-                      <span>{{ props.row.departure_time }}</span>
+                      <span>{{ props.row.departureTime }}</span>
                     </el-form-item>
                     <el-form-item label="预订日期">
-                      <span>{{ props.row.booking_date }}</span>
+                      <span>{{ props.row.bookingDate }}</span>
                     </el-form-item>
                   </el-form>
                 </template>
               </el-table-column>
-              <el-table-column label="车票编号" prop="ticket_number">
+              <el-table-column label="车票编号" prop="ticketNumber">
               </el-table-column>
-              <el-table-column label="列车编号" prop="train_num">
+              <el-table-column label="列车编号" prop="trainNum">
               </el-table-column>
               <el-table-column label="座席" prop="seating"> </el-table-column>
-              <el-table-column label="座位号" prop="seat_number">
+              <el-table-column label="座位号" prop="seatNumber">
               </el-table-column>
-              <el-table-column label="车票状态" prop="order_status">
+              <el-table-column label="车票状态" prop="orderStatus">
               </el-table-column>
             </el-table>
           </el-tab-pane>
@@ -301,12 +291,15 @@
 
 <script>
 import Header from "@/components/Header/UserHeader.vue";
-import { queryMyTicket } from "@/api/api";
+import { queryMyTicket, TicketRefund } from "@/api/api";
 export default {
   name: "Homepage",
   components: { Header },
   data() {
     return {
+      table1: [],
+      table2: [],
+
       tableData: [
         {
           user_id: "2016-05-02",
@@ -334,7 +327,38 @@ export default {
       loding: false,
     };
   },
+  filters: {
+    getSeating(value) {
+      return value == 0
+        ? "商务座"
+        : value == 1
+        ? "特等座"
+        : value == 2
+        ? "一等座"
+        : "二等座";
+    },
+    getStatus(value) {
+      return value == 0
+        ? "预定失败"
+        : value == 1
+        ? "预订中"
+        : value == 2
+        ? "预订成功"
+        : value == 3
+        ? "候车中"
+        : value == 4
+        ? "行驶中"
+        : "订单结束";
+    },
+  },
   methods: {
+    submitTicketRefund(value1, value2) {
+      console.log(value2);
+      TicketRefund(value2).then((res) => {
+        this.$message(res.msg);
+        location.reload();
+      });
+    },
     search() {},
     handleEdit(index, row) {
       console.log(index, row);
@@ -346,7 +370,17 @@ export default {
       queryMyTicket()
         .then((res) => {
           const ticket = res.data;
-          console.log(ticket);
+          this.tableData = ticket;
+          this.tableData.forEach((element) => {
+            if (element.orderStatus == 2 || element.orderStatus == 3) {
+              this.table1.push(element);
+            }
+            if (element.orderStatus != 1 && element.order_status != 5) {
+              this.table2.push(element);
+            }
+          });
+
+          // console.log(ticket);
         })
         .catch(() => {});
     },

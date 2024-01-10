@@ -57,16 +57,16 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="user_id" label="用户ID"> </el-table-column>
-        <el-table-column prop="order_id" label="订单号"> </el-table-column>
-        <el-table-column prop="refund_amount" label="退款金额">
+        <el-table-column prop="userId" label="用户ID"> </el-table-column>
+        <el-table-column prop="orderId" label="订单号"> </el-table-column>
+        <el-table-column prop="refundAmount" label="退款金额">
         </el-table-column>
-        <el-table-column prop="refund_reason" label="退款原因">
+        <el-table-column prop="refundReason" label="退款原因">
         </el-table-column>
-        <el-table-column prop="refund_time" label="申请时间"> </el-table-column>
-        <el-table-column prop="refund_status" label="退款状态">
+        <el-table-column prop="refundTime" label="申请时间"> </el-table-column>
+        <el-table-column prop="refundStatus" label="退款状态">
         </el-table-column>
-        <el-table-column prop="admin_comment" label="备注"> </el-table-column>
+        <el-table-column prop="adminComment" label="备注"> </el-table-column>
         <el-table-column label="操作" width="150">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
@@ -124,6 +124,7 @@ export default {
     queryTicketRefund() {
       queryTicketRefund().then((res) => {
         const ticketRefund = res.data;
+        this.tableData = ticketRefund;
         console.log(ticketRefund);
       });
     },

@@ -8,40 +8,40 @@
         <div class="text item">
           <el-descriptions class="margin-top" :column="1">
             <el-descriptions-item label="真实姓名">{{
-              userData.user_id_name
+              userData.userIdName
             }}</el-descriptions-item>
             <el-descriptions-item label="身份证号">{{
-              userData.user_id_number
+              userData.userIdNumber
             }}</el-descriptions-item>
             <el-descriptions-item label="性别">{{
-              userData.user_sex
+              userData.userSex
             }}</el-descriptions-item>
             <el-descriptions-item label="生日">{{
-              userData.user_birthday
+              userData.userBirthday
             }}</el-descriptions-item>
             <el-descriptions-item label="年龄">{{
-              userData.user_age
+              userData.userAge
             }}</el-descriptions-item>
           </el-descriptions>
           <el-divider></el-divider>
           <el-descriptions class="margin-top" :column="1" title="联系方式">
             <el-descriptions-item label="手机号">{{
-              userData.user_phone
+              userData.userPhone
             }}</el-descriptions-item>
             <el-descriptions-item label="手机号状态">{{
-              userData.user_phone_state
+              userData.userPhoneState
             }}</el-descriptions-item>
             <el-descriptions-item label="邮箱">{{
-              userData.user_mail
+              userData.userMail
             }}</el-descriptions-item>
             <el-descriptions-item label="邮箱状态">{{
-              userData.user_mail_state
+              userData.userMailState
             }}</el-descriptions-item>
             <el-descriptions-item label="用户类型">{{
-              userData.user_type
+              userData.userType
             }}</el-descriptions-item>
             <el-descriptions-item label="注册时间">{{
-              userData.user_create
+              userData.userCreate
             }}</el-descriptions-item>
           </el-descriptions>
         </div>
@@ -76,6 +76,7 @@ export default {
       queryMyUserData()
         .then((res) => {
           const userData = res.data;
+          this.userData = userData;
           console.log(userData);
         })
         .catch((err) => {});

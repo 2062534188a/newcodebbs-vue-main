@@ -23,10 +23,10 @@
           <el-button icon="el-icon-search"></el-button></div
       ></el-col>
 
-      <el-col :span="1" :offset="3"
+      <el-col :span="2" :offset="3"
         ><div class="grid-content bg-purple-dark">
           <el-link icon="el-icon-edit" href="http://localhost/#/login"
-            >登录</el-link
+            >你好,黄海</el-link
           >
         </div></el-col
       >

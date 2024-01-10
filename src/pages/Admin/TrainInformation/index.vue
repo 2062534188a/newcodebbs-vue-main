@@ -44,15 +44,15 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="train_num" label="列车编号"> </el-table-column>
-        <el-table-column prop="train_Stops" label="站点"> </el-table-column>
-        <el-table-column prop="train_arrival_time" label="预计出发时间">
+        <el-table-column prop="trainNum" label="列车编号"> </el-table-column>
+        <el-table-column prop="trainStops" label="站点"> </el-table-column>
+        <el-table-column prop="trainIssuedTime" label="预计出发时间">
         </el-table-column>
-        <el-table-column prop="train_issued_time" label="预计到达时间">
+        <el-table-column prop="trainArrivalTime" label="预计到达时间">
         </el-table-column>
-        <el-table-column prop="train_residence_time" label="预计停留时间">
+        <el-table-column prop="trainResidenceTime" label="预计停留时间">
         </el-table-column>
-        <el-table-column prop="train_late" label="预计晚点"> </el-table-column>
+        <el-table-column prop="trainLate" label="预计晚点"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
@@ -108,6 +108,7 @@ export default {
     queryTrainInformation() {
       queryTrainInformation().then((res) => {
         const trainInformation = res.data;
+        this.tableData = trainInformation;
         console.log(trainInformation);
       });
     },

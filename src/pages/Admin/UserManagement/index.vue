@@ -9,8 +9,8 @@
         class="demo-ruleForm"
         size="mini"
       >
-        <el-form-item label="用户名称" prop="username">
-          <el-input v-model="ruleForm.username" autocomplete="off"></el-input>
+        <el-form-item label="用户ID" prop="userId">
+          <el-input v-model="ruleForm.userId" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="手机号" prop="phone">
           <el-input v-model="ruleForm.phone" autocomplete="off"></el-input>
@@ -34,21 +34,23 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="username" label="用户名" width="180">
+        <el-table-column prop="userId" label="用户ID" width="180">
         </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
+        <el-table-column prop="userIdName" label="姓名" width="180">
         </el-table-column>
-        <el-table-column prop="phone" label="手机号"> </el-table-column>
-        <el-table-column prop="IP" label="登录IP"> </el-table-column>
-        <el-table-column prop="sex" label="性别"> </el-table-column>
-        <el-table-column prop="state" label="用户状态">
+        <el-table-column prop="userPhone" label="手机号"> </el-table-column>
+        <el-table-column prop="userLoginIp" label="登录IP"> </el-table-column>
+        <el-table-column prop="userSex" label="性别"> </el-table-column>
+        <el-table-column prop="userPermissions" label="用户状态">
           <template slot-scope="scope">
             <el-switch
-              v-model="scope.row.state"
+              v-model="scope.row.userPermissions"
               active-color="#13ce66"
               inactive-color="#ff4949"
+              :change="SSS(scope.row.userPermissions)"
             >
             </el-switch>
+            <!-- {{ scope.row.userPermissions }} -->
           </template>
         </el-table-column>
         <el-table-column label="操作">
@@ -76,7 +78,7 @@ export default {
   data() {
     return {
       ruleForm: {
-        username: "",
+        userId: "",
         phone: "",
       },
       va: true,
@@ -94,6 +96,9 @@ export default {
     };
   },
   methods: {
+    SSS(index) {
+      console.log(index);
+    },
     onSubmit() {},
     resetForm(formName) {
       console.log(formName);
@@ -108,10 +113,12 @@ export default {
     queryUserData() {
       queryUserData().then((res) => {
         const userData = res.data;
+        this.tableData = userData;
         console.log(userData);
       });
     },
   },
+
   mounted() {
     this.$bus.$emit("message", this.$route.meta.tittle);
     this.queryUserData();

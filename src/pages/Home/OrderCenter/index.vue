@@ -18,17 +18,17 @@
             class="demo-ruleForm"
             size="mini"
           >
-            <el-form-item label="订单号" prop="order_sn">
+            <el-form-item label="订单号" prop="orderSn">
               <el-input
                 type="text"
-                v-model="ruleForm.order_sn"
+                v-model="ruleForm.orderSn"
                 autocomplete="off"
               ></el-input>
             </el-form-item>
-            <el-form-item label="订单状态" prop="order_status">
+            <el-form-item label="订单状态" prop="orderStatus">
               <el-input
                 type="text"
-                v-model="ruleForm.order_status"
+                v-model="ruleForm.orderStatus"
                 autocomplete="off"
               ></el-input>
             </el-form-item>
@@ -45,35 +45,35 @@
               <template slot-scope="props">
                 <el-form label-position="left" inline class="demo-table-expand">
                   <el-form-item label="订单号">
-                    <span>{{ props.row.order_sn }}</span>
+                    <span>{{ props.row.orderSn }}</span>
                   </el-form-item>
                   <el-form-item label="订单金额">
-                    <span>{{ props.row.order_price }}</span>
+                    <span>{{ props.row.orderPrice }}</span>
                   </el-form-item>
                   <el-form-item label="真实姓名">
-                    <span>{{ props.row.user_id_name }}</span>
+                    <span>{{ props.row.userIdName }}</span>
                   </el-form-item>
                   <el-form-item label="手机号">
-                    <span>{{ props.row.user_phone }}</span>
+                    <span>{{ props.row.userPhone }}</span>
                   </el-form-item>
                   <el-form-item label="下单时间">
-                    <span>{{ props.row.create_time }}</span>
+                    <span>{{ props.row.createTime }}</span>
                   </el-form-item>
                   <el-form-item label="结束时间">
-                    <span>{{ props.row.close_time }}</span>
+                    <span>{{ props.row.closeTime }}</span>
                   </el-form-item>
                   <el-form-item label="订单状态">
-                    <span>{{ props.row.order_status }}</span>
+                    <span>{{ props.row.orderStatus }}</span>
                   </el-form-item>
                 </el-form>
               </template>
             </el-table-column>
-            <el-table-column label="订单号" prop="order_sn"> </el-table-column>
-            <el-table-column label="订单金额" prop="order_price">
+            <el-table-column label="订单号" prop="orderSn"> </el-table-column>
+            <el-table-column label="订单金额" prop="orderPrice">
             </el-table-column>
-            <el-table-column label="创建时间" prop="create_time">
+            <el-table-column label="创建时间" prop="createTime">
             </el-table-column>
-            <el-table-column label="订单状态" prop="order_status">
+            <el-table-column label="订单状态" prop="orderStatus">
             </el-table-column>
           </el-table>
         </div>
@@ -89,8 +89,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        order_sn: "",
-        order_status: "",
+        orderSn: "",
+        orderStatus: "",
       },
       tableData: [
         {
@@ -115,6 +115,7 @@ export default {
       queryMyOrder()
         .then((res) => {
           const orderData = res.data;
+          this.tableData = orderData;
           console.log(orderData);
         })
         .catch((err) => {});

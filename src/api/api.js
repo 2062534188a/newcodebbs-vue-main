@@ -43,6 +43,14 @@ export const queryMyTicket=()=>{
         method: 'post',
     })
 }
+//查询车次
+export const queryTrainByRoute=(data)=>{
+    return requests({
+        url: 'trainData/queryTrainByRoute',
+        method: 'post',
+        data
+    })
+}
 //查询我的会员信息
 export const queryMyVipInformation=()=>{
     return requests({
@@ -50,6 +58,23 @@ export const queryMyVipInformation=()=>{
         method: 'post',
     })
 }
+//预订车票
+export const BookingTickets=(data)=>{
+    return requests({
+        url: 'ticket/BookingTickets',
+        method: 'post',
+        data
+    })
+}
+//退票
+export const TicketRefund=(data)=>{
+    return requests({
+        url: 'ticket/TicketRefund',
+        method: 'post',
+        data
+    })
+}
+
 
 // 管理端api接口
 //查询用户数据

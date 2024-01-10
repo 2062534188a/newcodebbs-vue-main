@@ -1,4 +1,5 @@
 import { setItem } from '@/utils/storage'
+import { reqLogin } from '@/api/api'
 export default {
     namespaced:true,
     actions: {

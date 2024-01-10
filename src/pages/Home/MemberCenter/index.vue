@@ -7,18 +7,21 @@
         </div>
         <div class="text item">
           <el-descriptions title="基本信息" direction="vertical">
-            <el-descriptions-item label="手机号"
-              >kooriookami</el-descriptions-item
-            >
-            <el-descriptions-item label="姓名"
-              >18100000000</el-descriptions-item
-            >
-            <el-descriptions-item label="会员等级">苏州市</el-descriptions-item>
+            <el-descriptions-item label="手机号">{{
+              tableData.userPhone
+            }}</el-descriptions-item>
+            <el-descriptions-item label="姓名">{{
+              tableData.userIdName
+            }}</el-descriptions-item>
+            <el-descriptions-item label="会员等级">{{
+              tableData.userVip + 1
+            }}</el-descriptions-item>
             <el-descriptions-item label="备注">
-              <el-tag size="small">学校</el-tag>
+              <el-tag size="small">无</el-tag>
             </el-descriptions-item>
-            <el-descriptions-item label="等级生效起始日"
-              >江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item
+            <el-descriptions-item label="等级生效起始日">{{
+              tableData.userCreate
+            }}</el-descriptions-item
             ><el-descriptions-item label="等级终止日"
               ><h3 style="color: powderblue">长期有效</h3></el-descriptions-item
             >
@@ -29,7 +32,11 @@
             :percentage="MembershipPoints"
             style="float: left; margin-top: 40px"
           ></el-progress>
-          <el-steps :active="1" align-center style="margin-top: 70px">
+          <el-steps
+            :active="tableData.userVip"
+            align-center
+            style="margin-top: 70px"
+          >
             <el-step title="0" description="二星"></el-step>
             <el-step title="50000" description="三星"></el-step>
             <el-step title="150000" description="四星"></el-step>
@@ -46,16 +53,30 @@ export default {
   name: "MemberCenter",
   data() {
     return {
-      MembershipPoints: "1",
+      MembershipPoints: 100,
+      tableData: {},
     };
   },
   methods: {
     getMembershipPoints(percentage) {
-      return "2";
+      switch (this.tableData.userVip + 1) {
+        case 2:
+          this.MembershipPoints = this.tableData.userVipIntegral / 500;
+          break;
+        case 3:
+          this.MembershipPoints = this.tableData.userVipIntegral / 1500;
+          break;
+        case 4:
+          this.MembershipPoints = this.tableData.userVipIntegral / 2500;
+          break;
+      }
+      return this.tableData.userVipIntegral;
     },
     queryMyVipInformation() {
       queryMyVipInformation().then((res) => {
         const vipInformation = res.data;
+        this.tableData = vipInformation;
+        this.getMembershipPoints();
         console.log(vipInformation);
       });
     },

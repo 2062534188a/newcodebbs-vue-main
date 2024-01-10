@@ -48,23 +48,36 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="train_num" label="列车编号"> </el-table-column>
-        <el-table-column prop="train_type" label="列车类型"> </el-table-column>
+        <el-table-column prop="trainNum" label="列车编号"> </el-table-column>
+        <el-table-column prop="trainType" label="列车类型"> </el-table-column>
+
         <el-table-column
           prop="train_seats"
           label="商务/特等/一等/二等座余量"
           width="200"
         >
+          <template slot-scope="scope">
+            {{ scope.row.trainBusinessSeats }}/{{
+              scope.row.trainSuperiorSeats
+            }}/{{ scope.row.trainFirstSeats }}/{{ scope.row.trainSecondSeats }}
+          </template>
         </el-table-column>
         <el-table-column
           prop="train_seats_price"
           label="商务/特等/一等/二等座票价"
           width="200"
         >
+          <template slot-scope="scope">
+            {{ scope.row.trainBusinessSeatsPrice }}/{{
+              scope.row.trainSuperiorSeatsPrice
+            }}/{{ scope.row.trainFirstSeatsPrice }}/{{
+              scope.row.trainSecondSeatsPrice
+            }}
+          </template>
         </el-table-column>
 
-        <el-table-column prop="train_state" label="列车状态"> </el-table-column>
-        <el-table-column prop="train_service_life" label="列车使用年限">
+        <el-table-column prop="trainState" label="列车状态"> </el-table-column>
+        <el-table-column prop="trainServiceLife" label="列车使用年限">
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
@@ -123,6 +136,7 @@ export default {
     queryTrainType() {
       queryTrainType().then((res) => {
         const trainType = res.data;
+        this.tableData = trainType;
         console.log(trainType);
       });
     },

@@ -42,23 +42,23 @@
         >刷新</el-button
       >
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="user_id" label="用户ID" width="150">
+        <el-table-column prop="userId" label="用户ID" width="150">
         </el-table-column>
-        <el-table-column prop="order_sn" label="订单号" width="150">
+        <el-table-column prop="orderSn" label="订单号" width="150">
         </el-table-column>
-        <el-table-column prop="order_price" label="订单金额" width="150">
+        <el-table-column prop="orderPrice" label="订单金额" width="150">
         </el-table-column>
-        <el-table-column prop="user_id_name" label="真实姓名" width="150">
+        <el-table-column prop="userIdName" label="真实姓名" width="150">
         </el-table-column>
-        <el-table-column prop="user_id_number" label="身份证号" width="150">
+        <el-table-column prop="userIdNumber" label="身份证号" width="150">
         </el-table-column>
-        <el-table-column prop="user_phone" label="手机号" width="150">
+        <el-table-column prop="userPhone" label="手机号" width="150">
         </el-table-column>
-        <el-table-column prop="create_time" label="创建时间" width="150">
+        <el-table-column prop="createTime" label="创建时间" width="150">
         </el-table-column>
-        <el-table-column prop="close_time" label="结束时间" width="150">
+        <el-table-column prop="closeTime" label="结束时间" width="150">
         </el-table-column>
-        <el-table-column prop="order_status" label="订单状态"></el-table-column>
+        <el-table-column prop="orderStatus" label="订单状态"></el-table-column>
         <el-table-column label="操作" fixed="right" width="150">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
@@ -117,6 +117,7 @@ export default {
     queryOrder() {
       queryOrder().then((res) => {
         const order = res.data;
+        this.tableData = order;
         console.log(order);
       });
     },
