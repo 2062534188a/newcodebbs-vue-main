@@ -25,14 +25,14 @@
 
       <el-col :span="2" :offset="3"
         ><div class="grid-content bg-purple-dark">
-          <el-link icon="el-icon-edit" href="http://localhost/#/login"
+          <el-link icon="el-icon-edit" href="http://localhost/login"
             >你好,黄海</el-link
           >
         </div></el-col
       >
       <el-col :span="1"
         ><div class="grid-content bg-purple-dark">
-          <el-link href="http://localhost/#/register">注册 </el-link>
+          <el-link href="http://localhost/register">注册 </el-link>
         </div></el-col
       >
     </el-row>
@@ -42,12 +42,40 @@
           <ul id="nav">
             <li class="slide1"></li>
             <li class="slide2"></li>
-            <li><a href="http://localhost/#/home/search">首页</a></li>
-            <li><a href="http://localhost/#/home/homepage">本人车票</a></li>
-            <li><a href="http://localhost/#/home/memberCenter">会员中心</a></li>
-            <li><a href="http://localhost/#/home/orderCenter">我的订单</a></li>
             <li>
-              <a href="http://localhost/#/home/personalInformation">个人中心</a>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push({ name: 'Search' })"
+                >首页</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push({ name: 'Homepage' })"
+                >本人车票</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push({ name: 'MemberCenter' })"
+                >会员中心</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push({ name: 'OrderCenter' })"
+                >我的订单</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push({ name: 'PersonalInformation' })"
+                >个人中心</a
+              >
             </li>
           </ul>
         </div></el-col

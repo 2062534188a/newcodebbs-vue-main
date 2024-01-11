@@ -22,7 +22,8 @@ vueRouter.prototype.replace=function(location,reslove,reject){
     }
 }
 
-const router= new vueRouter({
+const router = new vueRouter({
+    mode:'history', // 模式，默认hash
     routes:routers
 })
 //设置前置路由守卫 对没有登录的用户进行限制
